@@ -9,15 +9,6 @@ class Game
   @current_player = @player1
   end
 
-
-private
-
-  def ask_name(default)
-  puts "Enter name for #{default} (or press Enter to keep '#{default}'):"
-  input = gets.chomp
-  input.empty? ? default : input
-  end
-
   def play
     loop do
       @board.display
@@ -39,6 +30,12 @@ private
   end
 
   private
+
+  def ask_name(default)
+    puts "Enter name for #{default} (or press Enter to keep '#{default}'):"
+    input = gets.chomp
+    input.empty? ? default : input
+  end
 
   def get_valid_move
     loop do
