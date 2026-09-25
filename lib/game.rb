@@ -3,10 +3,19 @@ require_relative "player"
 
 class Game
   def initialize
-    @board = Board.new
-    @player1 = Player.new("Player 1", "X")
-    @player2 = Player.new("Player 2", "O")
-    @current_player = @player1
+  @board = Board.new
+  @player1 = Player.new(ask_name("Player 1"), "X")
+  @player2 = Player.new(ask_name("Player 2"), "O")
+  @current_player = @player1
+  end
+
+
+private
+
+  def ask_name(default)
+  puts "Enter name for #{default} (or press Enter to keep '#{default}'):"
+  input = gets.chomp
+  input.empty? ? default : input
   end
 
   def play
